@@ -18,7 +18,7 @@ class Display
       row.each_with_index do |pos, j|
         str = " #{pos.symbol} " if pos.is_a?(Piece)
         str =  " * " if pos.is_a?(NullPiece)
-        str = str.red if @cursor.cursor_pos == [i,j]
+        str = str.green if @cursor.cursor_pos == [i,j]
         str += "|"
         print str
       end

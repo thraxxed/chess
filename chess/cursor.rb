@@ -76,6 +76,7 @@ class Cursor
   end
 
   def handle_key(key)
+    begin
     case key
     when :return
       @cursor_pos
@@ -95,6 +96,10 @@ class Cursor
     when :ctrl_c
       #exit from the terminal process
       Process.exit(0)
+    end
+    rescue ArgumentError => e
+      puts "Out of bounds!"
+      sleep(1)
     end
   end
 
